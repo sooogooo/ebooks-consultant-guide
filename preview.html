@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电子书本地预览工具</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1, h2 { color: #333; }
+        .container { text-align: center; margin-top: 50px; }
+        .instruction {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-right: 10px;
+        }
+        button:hover { background-color: #45a049; }
+        .warning { color: #f44336; margin-top: 20px; }
+        .server-option {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #e8f5e9;
+            border-radius: 8px;
+            text-align: left;
+        }
+        .code-block {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>电子书本地预览工具</h1>
+        <p>选择以下任一方式预览电子书：</p>
+
+        <div class="instruction">
+            <h2>方式一：浏览器直接预览</h2>
+            <ol>
+                <li>点击下方按钮，选择电子书目录中的index.html文件</li>
+                <li>浏览器将在新标签页中打开电子书</li>
+                <li>请注意：由于浏览器安全限制，某些功能（如本地资源加载）可能无法正常工作</li>
+            </ol>
+        </div>
+
+        <input type="file" id="fileInput" style="display: none;" accept=".html">
+        <button id="selectFileBtn">选择index.html文件</button>
+
+        <div class="server-option">
+            <h2>方式二：使用本地服务器（推荐）</h2>
+            <p>使用本地服务器可以获得更好的预览体验，避免浏览器安全限制问题。</p>
+            
+            <h3>使用Python：</h3>
+            <p>1. 确保已安装Python（推荐Python 3.6+）</p>
+            <p>2. 打开命令提示符，导航到电子书所在目录</p>
+            <div class="code-block">cd /d e:\WorkDirs\ebook\consultant</div>
+            <p>3. 运行以下命令启动服务器：</p>
+            <div class="code-block">python -m http.server 8000</div>
+            <p>4. 在浏览器中访问：http://localhost:8000</p>
+            
+            <h3>使用Node.js：</h3>
+            <p>1. 确保已安装Node.js和npm</p>
+            <p>2. 安装http-server包：</p>
+            <div class="code-block">npm install -g http-server</div>
+            <p>3. 打开命令提示符，导航到电子书所在目录</p>
+            <div class="code-block">cd /d e:\WorkDirs\ebook\consultant</div>
+            <p>4. 运行以下命令启动服务器：</p>
+            <div class="code-block">http-server -p 8000</div>
+            <p>5. 在浏览器中访问：http://localhost:8000</p>
+        </div>
+
+        <div class="warning">
+            <p>提示：如果您的浏览器阻止了弹出窗口，请允许此网站的弹出窗口。</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('selectFileBtn').addEventListener('click', function() {
+            document.getElementById('fileInput').click();
+        });
+
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                // 检查是否是index.html文件
+                if (file.name.toLowerCase() !== 'index.html') {
+                    alert('请选择index.html文件');
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const blob = new Blob([e.target.result], {type: 'text/html'});
+                    const url = URL.createObjectURL(blob);
+                    window.open(url, '_blank');
+                };
+                reader.readAsText(file);
+            }
+        });
+
+        // 添加复制代码功能
+        document.querySelectorAll('.code-block').forEach(block => {
+            block.addEventListener('click', function() {
+                const text = this.textContent;
+                navigator.clipboard.writeText(text).then(() => {
+                    const originalText = this.textContent;
+                    this.textContent = '已复制!';
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                    }, 2000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

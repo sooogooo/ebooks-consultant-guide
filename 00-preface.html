@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>前言 - 医美咨询顾问专业指南</title>
+    <link rel="icon" href="https://docs.bccsw.cn/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo-container">
+                <img src="https://docs.bccsw.cn/logo.png" alt="logo" class="logo">
+                <h1 class="site-title">医美咨询顾问专业指南</h1>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html#intro">简介</a></li>
+                    <li><a href="index.html#chapters">章节</a></li>
+                    <li><a href="index.html#appendix">附录</a></li>
+                    <li><a href="index.html#contact">联系我们</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-nav-toggle" aria-label="菜单">
+                <i class="ri-menu-line"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="chapter-content">
+            <div class="chapter-header">
+                <h2 class="section-title">前言</h2>
+            </div>
+            <div class="content-body">
+                <p>随着社会经济的发展和人们生活水平的提高，医疗美容行业呈现出快速发展的趋势。越来越多的人开始关注自己的外貌，追求更高的生活品质。在这个过程中，医美咨询顾问扮演着越来越重要的角色。</p>
+                <p>医美咨询顾问是连接客户和医生的桥梁，是客户了解医美知识、制定美容方案的重要引导者。一个优秀的医美咨询顾问不仅需要掌握丰富的医学知识和美容技术，还需要具备良好的沟通能力、心理学知识和职业素养。</p>
+                <p>为了帮助医美咨询顾问提升专业能力和服务水平，我们编写了这本《医美咨询顾问专业指南》。本书系统介绍了医美咨询顾问需要掌握的专业知识和技能，包括医学基础知识、心理学知识、沟通技巧、客户管理等方面的内容。</p>
+                <p>本书的编写团队由具有丰富临床经验的医生、心理学专家和资深医美咨询顾问组成。我们希望通过这本书，为医美咨询顾问提供实用的指导和参考，帮助他们更好地开展工作，为客户提供更优质的服务。</p>
+                <p>我们相信，通过不断学习和实践，医美咨询顾问一定能够提升自己的专业能力，为客户带来更美好的体验和效果。</p>
+                <p>最后，感谢所有为本书编写和出版付出努力的人员，感谢重庆联合丽格科技有限公司的大力支持。</p>
+            </div>
+            <div class="chapter-navigation">
+                <a href="index.html" class="nav-button prev-button"><i class="ri-arrow-left-line"></i> 返回目录</a>
+                <a href="01-china-medical-aesthetics-market.html" class="nav-button next-button">第一章：中国医疗美容市场概览 <i class="ri-arrow-right-line"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-info">
+                <p class="company-info">重庆联合丽格科技有限公司</p>
+                <p class="icp-info">
+                    <a href="http://beian.miit.gov.cn/" target="_blank">渝 ICP 备 2024023473 号</a>
+                </p>
+                <p class="contact-info">
+                    重庆市渝中区临江支路28号<br>
+                    电子邮件：<a href="mailto:bccsw@cqlhlg.work">bccsw@cqlhlg.work</a><br>
+                    联系电话：<a href="tel:023-68726872">023-68726872</a>
+                </p>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2024 重庆联合丽格科技有限公司 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <style>
+        .chapter-content {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 40px;
+        }
+        .content-body {
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        .content-body h3 {
+            color: var(--primary-color);
+            margin: 25px 0 15px;
+            font-weight: 500;
+        }
+        .content-body p {
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        .content-body ul {
+            margin: 0 0 20px 20px;
+            color: var(--secondary-color);
+        }
+        .content-body li {
+            margin-bottom: 10px;
+        }
+        .chapter-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: var(--light-accent);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            font-weight: 400;
+        }
+        .nav-button:hover {
+            background-color: var(--accent-color);
+            color: var(--white);
+        }
+        .prev-button i {
+            margin-right: 8px;
+        }
+        .next-button i {
+            margin-left: 8px;
+        }
+        @media (max-width: 768px) {
+            .chapter-content {
+                padding: 25px;
+            }
+            .chapter-navigation {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .nav-button {
+                justify-content: center;
+            }
+        }
+    </style>
+</body>
+</html>
